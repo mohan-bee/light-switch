@@ -1,13 +1,24 @@
 {
   "expo": {
-    "name": "light-switch",
+    "name": "Light",
     "slug": "light-switch",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": false,
+      "infoPlist": {
+        "NSLocalNetworkUsageDescription": "Light connects to your ESP over Wi-Fi to check its status and control your light.",
+        "NSAppTransportSecurity": {
+          "NSAllowsLocalNetworking": true,
+          "NSExceptionDomains": {
+            "10.0.0.0/8": { "NSExceptionAllowsInsecureHTTPLoads": true },
+            "172.16.0.0/12": { "NSExceptionAllowsInsecureHTTPLoads": true },
+            "192.168.0.0/16": { "NSExceptionAllowsInsecureHTTPLoads": true }
+          }
+        }
+      }
     },
     "android": {
       "adaptiveIcon": {
@@ -16,10 +27,13 @@
         "backgroundImage": "./assets/android-icon-background.png",
         "monochromeImage": "./assets/android-icon-monochrome.png"
       },
-      "predictiveBackGestureEnabled": false
+      "predictiveBackGestureEnabled": true
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "plugins": [
+      ["expo-build-properties", { "android": { "usesCleartextTraffic": true } }]
+    ]
   }
 }

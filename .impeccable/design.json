@@ -1,0 +1,49 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-28T06:27:19.213Z",
+  "title": "Design System: Light",
+  "extensions": {
+    "shadows": [
+      {
+        "name": "rocker-face",
+        "value": "0px 3px 3px rgba(30, 37, 50, 0.22)",
+        "purpose": "Small offset shadow below the molded SVG rocker face."
+      }
+    ],
+    "motion": [
+      {
+        "name": "rocker-state",
+        "value": "280ms; Easing.out(Easing.cubic); perspective 320; rotateX -10deg→10deg",
+        "purpose": "Animate tilt, contact shades, and active LED. Reduced motion updates immediately."
+      },
+      {
+        "name": "press-spring",
+        "value": "stiffness 300; damping 24; mass 0.8; scale 0.98",
+        "purpose": "Rocker press feedback; immediate with reduced motion."
+      },
+      {
+        "name": "screen-entrance",
+        "value": "280ms; Easing.out(Easing.cubic); opacity 0→1; translateY 8→0",
+        "purpose": "Setup/connected screen transition; immediate with reduced motion."
+      },
+      {
+        "name": "search-signal",
+        "value": "700ms per leg; Easing.inOut(Easing.quad); opacity 1↔0.25",
+        "purpose": "Pulse during search or handshake; static with reduced motion."
+      }
+    ]
+  },
+  "components": [],
+  "narrative": {
+    "overview": "Light uses a plain white canvas, dark ink, and a restrained blue accent drawn from the user's bencho.dev reference. Setup presents responding ESP devices with clear network guidance. A successful connection reveals one centered molded SVG rocker, without an outer tile or visible ON/OFF words.",
+    "dos": [
+      "Do keep setup distinct from the connected single-switch view.",
+      "Do preserve the white canvas, ink typography, blue actions, and localized blue LED glow.",
+      "Do expose connection progress, errors, confirmed state, focus, busy semantics, and reduced-motion behavior."
+    ],
+    "donts": [
+      "Don't add a dashboard, multiple switches, add/remove controls, or an outer switch tile.",
+      "Don't imply SSID scanning, automatic Wi-Fi joining, live hardware confirmation in preview, or push updates."
+    ]
+  }
+}
