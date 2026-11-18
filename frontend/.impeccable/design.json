@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-28T06:27:19.213Z",
+  "title": "Design System: Light",
+  "extensions": {
+    "shadows": [
+      {
+        "name": "rocker-face",
+        "value": "0px 3px 3px rgba(30, 37, 50, 0.22)",
+        "purpose": "Small offset shadow below the molded SVG rocker face."
+      }
+    ],
+    "motion": [
+      {
+        "name": "rocker-state",
+        "value": "280ms; Easing.out(Easing.cubic); perspective 320; rotateX -10deg→10deg",
+        "purpose": "Animate tilt, contact shades, and active LED. Reduced motion updates immediately."
+      },
+      {
+        "name": "press-spring",
+        "value": "stiffness 300; damping 24; mass 0.8; scale 0.98",
+        "purpose": "Rocker press feedback; immediate with reduced motion."
+      }
+    ]
+  },
+  "components": [],
+  "narrative": {
+    "overview": "Light uses a plain white canvas, dark ink, and a restrained blue accent. The app opens to one centered molded SVG rocker.",
+    "dos": [
+      "Preserve the white canvas, ink typography, and localized blue LED glow.",
+      "Expose checked state and focus, and respect reduced-motion preferences."
+    ],
+    "donts": [
+      "Don't add an outer switch tile or visible ON/OFF words."
+    ]
+  }
+}

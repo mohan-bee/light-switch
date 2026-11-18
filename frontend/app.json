@@ -7,20 +7,17 @@
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
     "ios": {
+      "bundleIdentifier": "com.mohanbee.lightswitch",
       "supportsTablet": false,
       "infoPlist": {
-        "NSLocalNetworkUsageDescription": "Light connects to your ESP over Wi-Fi to check its status and control your light.",
-        "NSAppTransportSecurity": {
-          "NSAllowsLocalNetworking": true,
-          "NSExceptionDomains": {
-            "10.0.0.0/8": { "NSExceptionAllowsInsecureHTTPLoads": true },
-            "172.16.0.0/12": { "NSExceptionAllowsInsecureHTTPLoads": true },
-            "192.168.0.0/16": { "NSExceptionAllowsInsecureHTTPLoads": true }
-          }
-        }
+        "NSLocalNetworkUsageDescription": "Find and control your paired switches on your Wi-Fi network.",
+        "NSBonjourServices": [
+          "_goswitch._tcp"
+        ]
       }
     },
     "android": {
+      "package": "com.mohanbee.lightswitch",
       "adaptiveIcon": {
         "backgroundColor": "#E6F4FE",
         "foregroundImage": "./assets/android-icon-foreground.png",
@@ -33,7 +30,14 @@
       "favicon": "./assets/favicon.png"
     },
     "plugins": [
-      ["expo-build-properties", { "android": { "usesCleartextTraffic": true } }]
+      [
+        "expo-secure-store",
+        {
+          "faceIDPermission": false
+        }
+      ],
+      "./modules/goswitch-provisioning/app.plugin.js",
+      "expo-status-bar"
     ]
   }
 }
