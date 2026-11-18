@@ -1,0 +1,19 @@
+plugins {
+  id 'com.android.library'
+  id 'expo-module-gradle-plugin'
+}
+
+group = 'expo.modules.goswitchprovisioning'
+version = '1.0.0'
+
+android {
+  namespace 'expo.modules.goswitchprovisioning'
+}
+
+dependencies {
+  // The bridge uses the SDK's protocol classes, so it needs only the AAR and protobuf.
+  implementation('com.github.espressif:esp-idf-provisioning-android:lib-2.4.4') {
+    transitive = false
+  }
+  implementation 'com.google.protobuf:protobuf-javalite:3.21.9'
+}
